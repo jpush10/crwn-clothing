@@ -33,6 +33,17 @@ const SignInForm = () => {
             console.log('response ==', response);
             // resetFormFields();
         } catch (error) {
+            console.log('error', error);
+            switch(error.code) {
+                case 'auth/wrong-password':
+                    alert('In correct password');
+                    break;
+                case 'auth/user-not-found':
+                    alert('No Email associated with this');
+                    break;
+                default:
+                    console.log('error', error);
+            }
             
         }
 
