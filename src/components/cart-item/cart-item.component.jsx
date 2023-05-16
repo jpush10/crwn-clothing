@@ -10,7 +10,7 @@ const CartItems = ({cartItem}) => {
                 <span className='price' >
                     {quantity} * ${price}
                 </span>
-
+                
             </div>
             <span>{quantity}</span>
         </div>
