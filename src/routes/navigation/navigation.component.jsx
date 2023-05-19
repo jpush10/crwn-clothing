@@ -13,7 +13,6 @@ const Navigation = () => {
     // const { setCurrentUser } = useContext(UserContext);
     const {isCartOpen, setIsCartOpen} = useContext(CartContext);
     
-    console.log('currentUser ==', currentUser);
     return (
         <Fragment>
             <NavigationContainer>

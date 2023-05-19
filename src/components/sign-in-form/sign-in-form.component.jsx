@@ -31,7 +31,6 @@ const SignInForm = () => {
             
             resetFormFields();
         } catch (error) {
-            console.log('error', error);
             switch(error.code) {
                 case 'auth/wrong-password':
                     alert('In correct password');
