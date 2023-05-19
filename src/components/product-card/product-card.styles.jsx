@@ -34,7 +34,7 @@ export const ButtonStyle = styled(Button)`
 `;
 
 export const ProductCardContainer = styled.div`
-  width: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   height: 350px;
