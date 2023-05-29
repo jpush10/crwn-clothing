@@ -8,8 +8,6 @@ const INITIAL_VALUE = {
 }
 
 export const userReducer = (state = INITIAL_VALUE, action) => {
-    console.log('state', state);
-    console.log('displached');
     const {type, payload} = action;
 
     switch(type) {
