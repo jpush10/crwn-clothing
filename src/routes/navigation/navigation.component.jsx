@@ -1,6 +1,7 @@
 import { Fragment, useContext } from "react";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ReactComponent as Crown} from '../../assets/annand.svg'
 // import { UserContext } from "../../contexts/user.contexts";
 // import { CartContext } from "../../contexts/cart.contexts";
@@ -9,15 +10,20 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectIsCartOpen } from "../../store/cart/cart.selector";
+import { signOutStart } from "../../store/user/user.action";
 import './navigation.styles.jsx'
 import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./navigation.styles.jsx";
 const Navigation = () => {
     const currentUser = useSelector(selectCurrentUser);
+    const dispatch = useDispatch();
+    console.log('currentUser ======', currentUser);
     // const { currentUser } = useContext(UserContext);
     // const { setCurrentUser } = useContext(UserContext);
     // const {isCartOpen, setIsCartOpen} = useContext(CartContext);
     const isCartOpen = useSelector(selectIsCartOpen);
-    
+    const signOut = () => {
+        dispatch(signOutStart());
+    }
     return (
         <Fragment>
             <NavigationContainer>
@@ -30,7 +36,7 @@ const Navigation = () => {
                     </NavLink>
                     {
                         currentUser ? (
-                            <NavLink as='span' onClick={signOutUser} > SIGN OUT </NavLink>
+                            <NavLink as='span' onClick={signOut} > SIGN OUT </NavLink>
                         ) : (
                         <NavLink to='/auth' >
                             SignIn
